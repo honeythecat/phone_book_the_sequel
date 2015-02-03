@@ -6,7 +6,7 @@ class Contact
 	define_method(:initialize) do |attributes|
 		@name = attributes.fetch(:name)
 		@phone = attributes.fetch(:phone)
-# 		@id = @@all_contacts.length().+(1)
+ 		@id = @@all_contacts.length().+(1)
 	end
 	
 	def self.all
@@ -20,7 +20,20 @@ class Contact
 	define_singleton_method(:clear) do
 		@@all_contacts = []
 	end
-
+	
+	define_method(:id) do
+		@id
+	end
+	
+	define_singleton_method(:find) do |id|
+		found_contact = nil
+		@@all_contacts.each() do |contact|
+			if contact.id().eql?(id)
+				found_contact = contact
+			end
+		end
+		found_contact
+	end
 end
 #   define_method(:save) do
 #     @@all_contacts.push(self)

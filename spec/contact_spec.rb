@@ -27,22 +27,21 @@ describe Contact do
 			expect(Contact.all()).to eq([])
 		end
 	end
+	
+	describe '#id' do
+		it 'returns the idea of a contact' do
+			test_contact = Contact.new({ :name => "Bunny", :phone => "3333333333"})
+			expect(test_contact.id()).to eq(1)
+		end
+	end
+	
+	describe '.find' do
+		it 'returns a contact by its id number' do
+			test_contact1 = Contact.new({ :name => "Satan", :phone => "6666666666" })
+			test_contact1.save()
+			test_contact2 = Contact.new({ :name => "Bunny", :phone => "3333333333" })
+			test_contact2.save()
+			expect(Contact.find(test_contact1.id())).to eq(test_contact1)
+		end
+	end
 end
-# 			test_contact = Name.create({ :contact_name => "Satan" })
-# 			test_phone = Phone.create({ :contact_phone => "666-666-6666" })
-# 			test_
-# # 			test_contact = Contact.create({ :contact_name, :contact_phone })
-# 			expect(test_contact = Contact.({:name => test_name, :phone => test_phone})).to(eq(test_contact))
-# 		end
-# 	end
-			
-# # 	describe(Contact) do
-# # 		describe(".all") do
-# # 			it("is empty at first") do
-# # 				test_contact = Contact.new({:name => nil, :phone => nil})
-# #       	expect(Contact.all()).to(eq([]))
-# #     	end
-# #   	end
-# # 	end
-
-# end
