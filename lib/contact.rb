@@ -1,21 +1,26 @@
 class Contact
-	attr_reader(:name, :phone)
+	attr_reader(:name, :phone, :id)
 	
-	#Old old way
-# 	define_method(:initialize) do |name, phone|
-# 		@name = name
-# 		@description = description
-# 	end
-# end
+	@@all_contacts = []
 	
 	define_method(:initialize) do |attributes|
 		@name = attributes.fetch(:name)
 		@phone = attributes.fetch(:phone)
+# 		@id = @@all_contacts.length().+(1)
 	end
 	
 	def self.all
-		[]
+		@@all_contacts
 	end
+	
+	define_method(:save) do
+		@@all_contacts.push(self)
+	end
+	
+	define_singleton_method(:clear) do
+		@@all_contacts = []
+	end
+
 end
 #   define_method(:save) do
 #     @@all_contacts.push(self)

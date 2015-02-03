@@ -2,9 +2,28 @@ require 'rspec'
 require 'contact'
 
 describe Contact do
-	
+	before() do
+		Contact.clear()
+	end	
+		
 	describe '.all' do
 		it 'is empty at first' do
+			expect(Contact.all()).to eq([])
+		end
+	end
+	
+	describe '#save' do
+		it 'adds a new contact to an array of contacts' do
+			test_contact = Contact.new({ :name => "Satan", :phone => "6666666666"})
+			test_contact.save()
+			expect(Contact.all()).to eq([test_contact])
+		end
+	end
+	
+	describe '.clear' do
+		it 'empties out all of the saved contacts' do
+			Contact.new({ :name => "Bunny", :phone => "3333333333"}).save()
+			Contact.clear()
 			expect(Contact.all()).to eq([])
 		end
 	end
