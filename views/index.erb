@@ -1,0 +1,28 @@
+<h1>The Great Phonebook!</h1>
+
+<hr>
+
+<p>Add a contact to your phonebook:</p>
+
+<form action="/" method="post" class="form-entry">
+	<label for="name"></label>
+	<input id="name" name="name" type="text" placeholder="ex: Fred Astaire">
+	
+	<button type="submit">Add contact!</button>
+</form>
+
+<hr>
+
+<h2>Here are your contacts:</h2>
+
+<hr>
+
+<% if @contacts.any?() %>
+	<ul>
+		<% @contacts.each() do |contact| %>
+		<li><%= contact.name() %></li>
+		<% end %>
+	</ul>
+<% else %>
+	<p>You have no contacts yet!</p>
+<% end %>
