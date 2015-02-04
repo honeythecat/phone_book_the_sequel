@@ -1,20 +1,39 @@
-# require('rspec')
-# require('phone')
+require 'rspec'
+require 'phone'
 
-# describe(Phone) do
-#   describe(".all") do
-#     it("is empty at first") do
-# 			test_phone = Phone.new({:phone_number => nil})
-# 			expect(Phone.all()).to(eq([]))
-#     end
-#   end
-  
-# 	describe("#save") do
-# 		it("saves new contact phone and returns it") do
-# 			test_phone = Phone.new({:contact_phone => "666-666-6666"})
-# 			test_phone.save()
-# 			expect(Phone.all()).to(eq([test_phone]))
-#     end
-#   end
+describe(Phone) do
+	before() do
+		Phone.clear()
+	end
+	
+	describe '.all' do
+		it 'is empty at first' do
+			expect(Phone.all()).to(eq([]))
+		end
+	end
+	
+	describe '#save' do
+		it 'adds a new number and phone type to an array of phones' do
+			test_phone = Phone.new({ :type => "cell", :number => "6666666666"})
+			test_phone.save()
+			expect(Phone.all()).to eq([test_phone])
+		end
+	end
+	
+	describe '.clear' do
+		it 'empties out all of the saved phones' do
+			Phone.new({ :type => "cell", :number => "6666666666"})
+			Phone.clear()
+			expect(Phone.all()).to eq([])
+		end
+	end
+	
+	describe '#id' do
+		it 'returns the id of a phone entry' do
+			test_phone = Phone.new({ :type => "home", :number => "6666666666"})
+			expect(test_phone.id()).to eq(1)
+		end
+	end
 
-# end
+
+end
