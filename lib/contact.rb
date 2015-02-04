@@ -4,7 +4,7 @@ class Contact
 	@@all_contacts = []
 	
 	define_method(:initialize) do |attributes|
-		@name = :name
+		@name = attributes[:name]
 		@numbers = []
  		@id = @@all_contacts.length().+(1)
 	end

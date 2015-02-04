@@ -4,7 +4,7 @@
 
 <p>Add a contact to your phonebook:</p>
 
-<form action="/" method="post" class="form-entry">
+<form action="/contacts" method="post" class="form-entry">
 	<label for="name"></label>
 	<input id="name" name="name" type="text" placeholder="ex: Fred Astaire">
 	
@@ -20,7 +20,7 @@
 <% if @contacts.any?() %>
 	<ul>
 		<% @contacts.each() do |contact| %>
-		<li><%= contact.name() %></li>
+		<li><a href="/contacts/<%= contact.id() %>"><%= contact.name() %></a></li>
 		<% end %>
 	</ul>
 <% else %>
