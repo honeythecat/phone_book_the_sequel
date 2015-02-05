@@ -35,5 +35,12 @@ describe(Phone) do
 		end
 	end
 
+	describe '#number' do
+		it 'returns the phone number' do
+			test_phone = Phone.new({ :type => "cell", :number => "6666666666"})
+			test_phone.save()
+			expect(test_phone.number()).to eq("6666666666")
+		end
+	end	
 
 end

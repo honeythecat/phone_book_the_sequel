@@ -49,7 +49,7 @@ describe Contact do
 	describe '#add_phone' do
 		it 'adds a new phone number to contact' do
 			test_contact = Contact.new({ :name => "Satan"})
-			test_phone = Phone.new(["cell", "1111111111"])
+			test_phone = Phone.new({ :type => "cell", :number => "1111111111"})
 			test_contact.add_phone(test_phone)
 			expect(test_contact.numbers()).to eq([test_phone])
 		end

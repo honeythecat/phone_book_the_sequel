@@ -4,8 +4,8 @@ class Phone
 	@@all_phones = []
 	
 	define_method(:initialize) do |attributes|
-		@type = :type
-		@number = :number
+		@type = attributes.fetch(:type)
+		@number = attributes.fetch(:number)
 		@id = @@all_phones.length().+(1)
 	end
 	
@@ -20,9 +20,9 @@ class Phone
 	define_singleton_method(:clear) do
 		@@all_phones = []
 	end
-
-	define_method(:id) do
-		@id
+	
+	define_method(:type) do
+		@type
 	end
 	
 	define_singleton_method(:find) do |identification|

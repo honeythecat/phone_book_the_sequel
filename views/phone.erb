@@ -20,3 +20,20 @@
 	<button type="submit">Edit your contact</button>
 </form>
 
+<hr>
+
+<ul><% if @contact.numbers().any?() %>
+	<% @contact.numbers.each() do |number| %>
+	<li><%= number.type() %>:  <%= number.number() %></li>
+	<% end %>
+</ul>
+<ul>
+<% else %>
+	<li>There are no numbers yet!</li>
+<% end %>
+</ul>
+
+<br>
+
+<a href="/">Return to the Great Phone Book</a>
+
