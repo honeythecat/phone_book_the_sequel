@@ -11,14 +11,30 @@ get '/' do
 	erb :index
 end
 
-post '/contact' do
+post '/contacts' do
 	name = params.fetch('name')
 	contact = Contact.new({:name => name, :id => nil}).save()
 	@contacts = Contact.all()
 	erb :index
 end
 
-get '/contact/:id' do
-	@contact = Contact.find(params['id'].to_i())
-	erb :contacts
+post '/phones' do
+	type = params.fetch('type')
+ 	number = params.fetch('number')
+	@phones = Phones.all()
+	@phone = Phone.new({:type => type, :number => number, :id => nil}).save()
+	@contact = Contact.find(params.fetch('contact_id').to_i())
+	@contact.add_phone(@phone)
+# 	erb "/contacts/#{contact_id}"
+end
+
+get '/phones/:id' do
+ 	@phone = Phone.find(params.fetch('id'))
+	erb 'contacts/:id'
+end
+
+
+get '/contacts/:id' do
+	@contact = Contact.find(params.fetch('id').to_i())
+	erb :phone
 end

@@ -1,0 +1,22 @@
+<h1>Contact: <%= @contact.name() %></h1>
+
+<hr>
+	
+<form action="/phones" method="post">
+	<input id="contact_id" name="contact_id" type="hidden" value="<%= @contact.id() %>">
+	
+	<label for="type">Type of phone:</label>
+	<input id="type" name="type" type="text" placeholder="ex. cell phone">
+	
+	<br>
+	<br>
+	
+	<label for="number">Telephone number:</label>
+	<input id="number" name="number" type="text" placeholder="ex. 5555555555">
+	
+	<br>
+	<br>
+	
+	<button type="submit">Edit your contact</button>
+</form>
+
