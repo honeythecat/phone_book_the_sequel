@@ -1,18 +1,22 @@
 README
 
-Phone Book App description: If you want to search for a name or phone number then this app is for you! It will allow you to add contacts, list your contacts, and then search your contacts. It's like an address book of the future.
+This is a simple app called The Great Phone Book created in Ruby 2.1.1. If you want to search for a name or phone number then this app is for you! It will allow you to add contacts, list your contacts, and then search your contacts. It's like an address book from the future.
 
-Ruby version: 2.1.1
+Setup:
+In your terminal inside this project folder:
+
+	gem install bundle
+
+	bundle
+
+	ruby app.rb
+	 
+	Go to http://localhost:4000 in your browser
+	
+	And theoretically...you should now be able to use The Great Phone Book!
 
 
-How to run the program:
-In order to run Phone Book you need to run bundle and make sure that you have the Sinatra server running and open in your browser.
+Known bugs as of 2/5/15:
+This section to hopefully be filled out at the end of the day.
 
-
-Known bugs as of 1/16/15:
-Little known fact. Running nitrous.io on an internet connection that cuts out will lead to no bugs in your code whatsoever. This is mainly due to the fact there is no more code. 
-
-So within the last hour or so of class, I have managed to create only bugs which are mostly untested. Hopefully this weekend there will be more code and fewer bugs then this assessment can be resubmitted in far more glory than today. 
-
-
-Heather Anderson. MIT License. Copyright 2015. Created by Heather Anderson. Email: heather@thisisnotanorg.org
+Note to my future self: You are finishing this today. Trust me. Why would I lie to myself.
