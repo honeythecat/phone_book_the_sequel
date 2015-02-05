@@ -20,7 +20,7 @@
 <% if @contacts.any?() %>
 	<ul>
 		<% @contacts.each() do |contact| %>
-		<li><a href="/contacts/<%= contact.id() %>"><%= contact.name() %></a></li>
+			<li><a href="/contacts/<%= contact.id() %>"><%= contact.name() %></a></li>
 		<% end %>
 	</ul>
 <% else %>

@@ -3,32 +3,32 @@ class Phone
 	
 	@@all_phones = []
 	
-	define_method(:initialize) do |attributes|
-		@type = attributes.fetch(:type)
-		@number = attributes.fetch(:number)
-		@id = @@all_phones.length().+(1)
+	def initialize(attributes)
+		@type = attributes[:type]
+		@number = attributes[:number]
+		@id = @@all_phones.length + 1
 	end
 	
-	define_method(:save) do
+	def save
 		@@all_phones.push(self)
 	end
 	
-	define_singleton_method(:all) do
+	def self.all 
 		@@all_phones
 	end
 	
-	define_singleton_method(:clear) do
+	def self.clear
 		@@all_phones = []
 	end
 	
-	define_method(:type) do
+	def type
 		@type
 	end
 	
-	define_singleton_method(:find) do |identification|
+	def self.find(identification)
 		found_phone = nil
-		@@all_phones.each() do |phone|
-			if phone.id().eq?(identification.to_i())
+		@@all_phones.each do |phone|
+			if phone.id == identification.to_i
 				found_phone = phone
 			end
 		end

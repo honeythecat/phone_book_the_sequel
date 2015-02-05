@@ -3,39 +3,39 @@ class Contact
 	
 	@@all_contacts = []
 	
-	define_method(:initialize) do |attributes|
+	def initialize(attributes)
 		@name = attributes[:name]
 		@numbers = []
- 		@id = @@all_contacts.length().+(1)
+ 		@id = @@all_contacts.length + 1
 	end
 	
-	define_method(:save) do
+	def save
 		@@all_contacts.push(self)
 	end
 	
-	define_singleton_method(:all) do
+	def self.all
 		@@all_contacts
 	end
 		
-	define_singleton_method(:clear) do
+	def self.clear
 		@@all_contacts = []
 	end
 	
-	define_method(:id) do
+	def id
 		@id
 	end
 	
-	define_singleton_method(:find) do |id|
+	def self.find(id)
 		found_contact = nil
-		@@all_contacts.each() do |contact|
-			if contact.id().eql?(id)
+		@@all_contacts.each do |contact|
+			if contact.id == id
 				found_contact = contact
 			end
 		end
 		found_contact
 	end
 	
-	define_method(:add_phone) do |phone|
+	def add_phone(phone)
 		@numbers.push(phone)
 	end
 end

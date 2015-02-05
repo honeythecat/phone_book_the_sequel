@@ -22,9 +22,10 @@
 
 <hr>
 
-<ul><% if @contact.numbers().any?() %>
+<ul>
+<% if @contact.numbers().any?() %>
 	<% @contact.numbers.each() do |number| %>
-	<li><%= number.type() %>:  <%= number.number() %></li>
+		<li><%= number.type() %>:  <%= number.number() %></li>
 	<% end %>
 </ul>
 <ul>
