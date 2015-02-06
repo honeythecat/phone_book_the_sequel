@@ -30,7 +30,7 @@ describe Contact do
 	end
 	
 	describe '#id' do
-		it 'returns the idea of a contact' do
+		it 'returns the id of a contact' do
 			test_contact = Contact.new({ name: "Bunny" })
 			expect(test_contact.id()).to eq 1
 		end
